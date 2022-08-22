@@ -9,7 +9,9 @@ function addDefaultMaterial(
   addFenceSings,
   allWoodPosts,
   woodTopParts,
-  topBoards
+  topBoards,
+  sturmankerMat,
+  sturmankersRuckseite
 ) {
   //boards materials
   fenceBoards.forEach((elm) => {
@@ -21,10 +23,13 @@ function addDefaultMaterial(
   topBoards.forEach((elm) => {
     elm.material = woodMaterials[1];
   });
-  // //sturmankers material
-  // sturmankersVorderseite.forEach((elm) => {
-  //   elm.material = sturmankerMat;
-  // });
+  //sturmankers material
+  sturmankersVorderseite.forEach((elm) => {
+    elm.material = sturmankerMat;
+  });
+  sturmankersRuckseite.forEach((elm) => {
+    elm.material = sturmankerMat;
+  });
   //wood top parts
   woodTopParts.forEach((elm) => {
     elm.material = woodMaterials[0];

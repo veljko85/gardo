@@ -721,7 +721,6 @@ var createScene = function () {
       intersectedPosts,
       intersectedPostsMain,
       fencesArr,
-      rightPostCaps,
       postType,
       smallMetalParts
     );
@@ -914,7 +913,9 @@ var createScene = function () {
                   addFenceSings,
                   allWoodPosts,
                   woodTopParts,
-                  topBoards
+                  topBoards,
+                  sturmankerMat,
+                  sturmankersRuckseite
                 );
                 activeFence = false;
                 post.material = selectedMat;
@@ -1151,7 +1152,7 @@ var createScene = function () {
         scene
       );
       foundationRuckStart.position = new BABYLON.Vector3(0, -0.13, 0);
-      foundationRuckStart.rotation.x = Math.PI / 2;
+      foundationRuckStart.rotation.x = -Math.PI / 2;
       foundationRuckStart.material = concreteMat;
       foundationRuckStart.parent = leftRoot0;
       foundationStartsRuck.push(foundationRuckStart);
@@ -1297,7 +1298,6 @@ var createScene = function () {
                 intersectedPosts,
                 intersectedPostsMain,
                 fencesArr,
-                rightPostCaps,
                 postType,
                 smallMetalParts
               );
@@ -1482,7 +1482,9 @@ var createScene = function () {
                     addFenceSings,
                     allWoodPosts,
                     woodTopParts,
-                    topBoards
+                    topBoards,
+                    sturmankerMat,
+                    sturmankersRuckseite
                   );
                   result.meshes[1].material =
                     result.meshes[10].material =
@@ -1523,7 +1525,9 @@ var createScene = function () {
                     addFenceSings,
                     allWoodPosts,
                     woodTopParts,
-                    topBoards
+                    topBoards,
+                    sturmankerMat,
+                    sturmankersRuckseite
                   );
 
                   // singsDel.forEach((elm) => {
@@ -1598,7 +1602,6 @@ var createScene = function () {
           intersectedPosts,
           intersectedPostsMain,
           fencesArr,
-          rightPostCaps,
           postType,
           smallMetalParts
         );
@@ -1632,7 +1635,9 @@ var createScene = function () {
                   addFenceSings,
                   allWoodPosts,
                   woodTopParts,
-                  topBoards
+                  topBoards,
+                  sturmankerMat,
+                  sturmankersRuckseite
                 );
                 rightPost.material = selectedMat;
                 sideAccesories.style.display = "block";
@@ -1689,7 +1694,9 @@ var createScene = function () {
                   addFenceSings,
                   allWoodPosts,
                   woodTopParts,
-                  topBoards
+                  topBoards,
+                  sturmankerMat,
+                  sturmankersRuckseite
                 );
               }
             }
@@ -1724,7 +1731,6 @@ var createScene = function () {
         });
         smallMetalParts.push(newSmallMetPartsArr);
         rightSmallMetalParts.push(newSmallMetPartsArr);
-
         //WOOD POST
         let rightWoodPost = result.meshes[28];
         rightWoodPost.position.z = 0;
@@ -2050,7 +2056,7 @@ var createScene = function () {
         );
 
         foundationRuckStart.position = new BABYLON.Vector3(0, -0.13, 0);
-        foundationRuckStart.rotation.x = Math.PI / 2;
+        foundationRuckStart.rotation.x = -Math.PI / 2;
         foundationRuckStart.material = concreteMat;
         foundationRuckStart.parent = rightRoot0;
         foundationStartsRuck.push(foundationRuckStart);
@@ -2140,8 +2146,13 @@ var createScene = function () {
 
         //SET NEW FENCE SAME POST SIZE AS THE OTHER
         if (befePfostenSize == 1) {
-          rightPost.scaling.z = 1.2;
-          rightPost.position.y = 0.7717;
+          if (type != "gardoHalf") {
+            rightPost.scaling.z = 1.2;
+            rightPost.position.y = 0.7717;
+          } else {
+            rightPost.scaling.z = 0.724;
+            rightPost.position.y = 0.41;
+          }
           rightRoot0.isVisible = false;
           rightRoot1.isVisible = false;
 
@@ -2155,8 +2166,13 @@ var createScene = function () {
         }
         // setbefePfosten(1.2, 0.7717, false, 1, -0.5 / 2);
         if (befePfostenSize == 2) {
-          rightPost.scaling.z = 1.475;
-          rightPost.position.y = 0.511;
+          if (type != "gardoHalf") {
+            rightPost.scaling.z = 1.475;
+            rightPost.position.y = 0.511;
+          } else {
+            rightPost.scaling.z = 0.999;
+            rightPost.position.y = 0.15;
+          }
           rightRoot0.isVisible = false;
           rightRoot1.isVisible = false;
 
@@ -2697,7 +2713,9 @@ var createScene = function () {
               addFenceSings,
               allWoodPosts,
               woodTopParts,
-              topBoards
+              topBoards,
+              sturmankerMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2752,7 +2770,9 @@ var createScene = function () {
               addFenceSings,
               allWoodPosts,
               woodTopParts,
-              topBoards
+              topBoards,
+              sturmankerMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2807,7 +2827,9 @@ var createScene = function () {
               addFenceSings,
               allWoodPosts,
               woodTopParts,
-              topBoards
+              topBoards,
+              sturmankerMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2862,7 +2884,9 @@ var createScene = function () {
               addFenceSings,
               allWoodPosts,
               woodTopParts,
-              topBoards
+              topBoards,
+              sturmankerMat,
+              sturmankersRuckseite
             );
             newFenceForwardSigns[i].isVisible = true;
             newFenceRightSigns[i].isVisible = true;
@@ -2936,7 +2960,9 @@ var createScene = function () {
             addFenceSings,
             allWoodPosts,
             woodTopParts,
-            topBoards
+            topBoards,
+            sturmankerMat,
+            sturmankersRuckseite
           );
           addNewFenceMeshRightMain.isVisible = true;
           addNewFenceMeshLeftMain.isVisible = true;
@@ -2986,7 +3012,9 @@ var createScene = function () {
             addFenceSings,
             allWoodPosts,
             woodTopParts,
-            topBoards
+            topBoards,
+            sturmankerMat,
+            sturmankersRuckseite
           );
           addNewFenceMeshRightMain.isVisible = true;
           addNewFenceMeshLeftMain.isVisible = true;
@@ -3287,6 +3315,32 @@ var createScene = function () {
             }
           }
         }
+        if (wholeFences[i].rotation.y < 0) {
+          if (typeof fencesArr[i].parent == "undefined") {
+            //set whole fence position x
+            // wholeFences[i].position.x = getAbsPosX(post[0]);
+            if (post == rightPosts) {
+              //set whole fence position z
+              wholeFences[i].position.z = getAbsPosZ(post[0]) + 0.93;
+            } else {
+              //set whole fence position z
+              wholeFences[i].position.z = getAbsPosZ(post[0]) + 0.95;
+            }
+          }
+        }
+        if (wholeFences[i].rotation.y > 1 && wholeFences[i].rotation.y < 2) {
+          if (typeof fencesArr[i].parent == "undefined") {
+            //set whole fence position x
+            // wholeFences[i].position.x = getAbsPosX(post[0]);
+            if (post == rightPosts) {
+              //set whole fence position z
+              wholeFences[i].position.z = getAbsPosZ(post[0]) - 0.93;
+            } else {
+              //set whole fence position z
+              wholeFences[i].position.z = getAbsPosZ(post[0]) - 0.95;
+            }
+          }
+        }
       }
     }
     setSturmankerPosition(post);
@@ -3333,7 +3387,6 @@ var createScene = function () {
       intersectedPosts,
       intersectedPostsMain,
       fencesArr,
-      rightPostCaps,
       postType,
       smallMetalParts
     );
@@ -3496,12 +3549,6 @@ var createScene = function () {
   );
   setPartsAndconf(fencePostsParts, fencePostMat, fencePartsColors);
   setActivnes(fencePostsParts, 4, "active-text-color");
-  // fencePostsParts[0].onclick = () => {
-  //   setActivnesStyle(fenceSturmankerParts, 7, 0, "active-text-color");
-  // };
-  // fencePostsParts[1].onclick = () => {
-  //   setActivnesStyle(fenceSturmankerParts, 7, 1, "active-text-color");
-  // };
 
   //set alu post size
   let befePfostenParts = document.getElementsByClassName(
@@ -3608,11 +3655,11 @@ var createScene = function () {
       befePfostenSize = 0;
     });
     befePfostenParts[1].addEventListener("click", () => {
-      setbefePfosten(1.2, 0.7717, false, 1, 2.165, 0.724, 0.3119);
+      setbefePfosten(1.2, 0.7717, false, 1, 2.165, 0.724, 0.41);
       befePfostenSize = 1;
     });
     befePfostenParts[2].addEventListener("click", () => {
-      setbefePfosten(1.475, 0.511, false, 1.8, 2.365, 0.999, 0.053);
+      setbefePfosten(1.475, 0.511, false, 1.8, 2.365, 0.999, 0.15);
       befePfostenSize = 2;
     });
   }
@@ -3681,11 +3728,11 @@ var createScene = function () {
     setActivnesStyle(pfostensSingle, 0, 0, "active-text-color-single-pfosten");
   });
   pfostensSingle[1].addEventListener("click", () => {
-    changeSinglePostSize(1.2, 0.7717, false, 1, 2.165, 0.724, 0.3119);
+    changeSinglePostSize(1.2, 0.7717, false, 1, 2.165, 0.724, 0.41);
     setActivnesStyle(pfostensSingle, 0, 1, "active-text-color-single-pfosten");
   });
   pfostensSingle[2].addEventListener("click", () => {
-    changeSinglePostSize(1.475, 0.511, false, 1.8, 2.365, 0.999, 0.053);
+    changeSinglePostSize(1.475, 0.511, false, 1.8, 2.365, 0.999, 0.15);
     setActivnesStyle(pfostensSingle, 0, 2, "active-text-color-single-pfosten");
   });
 
@@ -3903,7 +3950,9 @@ var createScene = function () {
                 addFenceSings,
                 allWoodPosts,
                 woodTopParts,
-                topBoards
+                topBoards,
+                sturmankerMat,
+                sturmankersRuckseite
               );
               a.forEach((elm) => {
                 elm.material = sturmankerMat;
@@ -4027,7 +4076,9 @@ var createScene = function () {
       addFenceSings,
       allWoodPosts,
       woodTopParts,
-      topBoards
+      topBoards,
+      sturmankerMat,
+      sturmankersRuckseite
     );
     addFenceSings;
     if (activnesToFalse) {
@@ -4091,15 +4142,15 @@ var createScene = function () {
         }
         if (rightPosts[h].scaling.z > 1 && rightPosts[h].scaling.z < 1.4) {
           rightWoodPosts[h].scaling.y = 0.724;
-          rightWoodPosts[h].position.y = 0.3119;
+          rightWoodPosts[h].position.y = 0.41;
           rightPosts[h].scaling.z = 0.724;
-          rightPosts[h].position.y = 0.3119;
+          rightPosts[h].position.y = 0.41;
         }
         if (rightPosts[h].scaling.z > 1.4) {
           rightWoodPosts[h].scaling.y = 0.999;
-          rightWoodPosts[h].position.y = 0.053;
+          rightWoodPosts[h].position.y = 0.15;
           rightPosts[h].scaling.z = 0.999;
-          rightPosts[h].position.y = 0.053;
+          rightPosts[h].position.y = 0.15;
         }
         if (rightPosts[h].isVisible) {
           rightPostCaps[h].isVisible = false;
@@ -4138,15 +4189,15 @@ var createScene = function () {
               rightPosts[fencesArr[h].parent].scaling.z < 1.4
             ) {
               rightWoodPosts[fencesArr[h].parent].scaling.y = 0.724;
-              rightWoodPosts[fencesArr[h].parent].position.y = 0.3119;
+              rightWoodPosts[fencesArr[h].parent].position.y = 0.41;
               rightPosts[fencesArr[h].parent].scaling.z = 0.724;
-              rightPosts[fencesArr[h].parent].position.y = 0.3119;
+              rightPosts[fencesArr[h].parent].position.y = 0.41;
             }
             if (rightPosts[fencesArr[h].parent].scaling.z > 1.4) {
               rightWoodPosts[fencesArr[h].parent].scaling.y = 0.999;
-              rightWoodPosts[fencesArr[h].parent].position.y = 0.053;
+              rightWoodPosts[fencesArr[h].parent].position.y = 0.15;
               rightPosts[fencesArr[h].parent].scaling.z = 0.999;
-              rightPosts[fencesArr[h].parent].position.y = 0.053;
+              rightPosts[fencesArr[h].parent].position.y = 0.15;
             }
             if (rightPosts[fencesArr[h].parent].isVisible) {
               rightPostCaps[fencesArr[h].parent].isVisible = false;
@@ -4168,15 +4219,15 @@ var createScene = function () {
         }
         if (leftPosts[0].scaling.z > 1 && leftPosts[0].scaling.z < 1.4) {
           allWoodPosts[0].scaling.y = 0.724;
-          allWoodPosts[0].position.y = 0.3119;
+          allWoodPosts[0].position.y = 0.41;
           leftPosts[0].scaling.z = 0.724;
-          leftPosts[0].position.y = 0.3119;
+          leftPosts[0].position.y = 0.41;
         }
         if (leftPosts[0].scaling.z > 1.4) {
           allWoodPosts[0].scaling.y = 0.999;
-          allWoodPosts[0].position.y = 0.053;
+          allWoodPosts[0].position.y = 0.15;
           leftPosts[0].scaling.z = 0.999;
-          leftPosts[0].position.y = 0.053;
+          leftPosts[0].position.y = 0.15;
         }
         if (leftPosts[0].isVisible) {
           leftPostCaps[0].isVisible = false;
@@ -4404,7 +4455,10 @@ var createScene = function () {
     // ledsRight[a].isVisible = false;
 
     //set post size for small parent post
-    if (fencesArr[fencesArr[a].parent].type == "gardoHalf") {
+    if (
+      fencesArr[a].parent != undefined &&
+      fencesArr[fencesArr[a].parent].type == "gardoHalf"
+    ) {
       let childTypee = 0;
       for (let i = 0; i < fencesArr[fencesArr[a].parent].children.length; i++) {
         if (
@@ -4426,15 +4480,15 @@ var createScene = function () {
           rightPosts[fencesArr[a].parent].scaling.z < 1.4
         ) {
           rightWoodPosts[fencesArr[a].parent].scaling.y = 0.724;
-          rightWoodPosts[fencesArr[a].parent].position.y = 0.3119;
+          rightWoodPosts[fencesArr[a].parent].position.y = 0.41;
           rightPosts[fencesArr[a].parent].scaling.z = 0.724;
-          rightPosts[fencesArr[a].parent].position.y = 0.3119;
+          rightPosts[fencesArr[a].parent].position.y = 0.41;
         }
         if (rightPosts[fencesArr[a].parent].scaling.z > 1.4) {
           rightWoodPosts[fencesArr[a].parent].scaling.y = 0.999;
-          rightWoodPosts[fencesArr[a].parent].position.y = 0.053;
+          rightWoodPosts[fencesArr[a].parent].position.y = 0.15;
           rightPosts[fencesArr[a].parent].scaling.z = 0.999;
-          rightPosts[fencesArr[a].parent].position.y = 0.053;
+          rightPosts[fencesArr[a].parent].position.y = 0.15;
         }
         if (rightPosts[fencesArr[a].parent].isVisible) {
           rightPostCaps[fencesArr[a].parent].isVisible = false;
@@ -4571,7 +4625,8 @@ var createScene = function () {
     fakeBacks,
     fakeLefts,
     fakeRights,
-    fakeFences
+    fakeFences,
+    sturmankerMat
   );
 
   ///////////////////////////////////////////////////////////////CANVAS PLAN///////////////////////////////////////////////////////////////////

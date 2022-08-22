@@ -7,7 +7,6 @@ function checkIntPos(
   intersectedPosts,
   intersectedPostsMain,
   fencesArr,
-  rightPostCaps,
   postType,
   smallMetalParts
 ) {
@@ -20,7 +19,6 @@ function checkIntPos(
             (allPosts[i].isVisible && allPosts[j].isVisible) ||
             (allWoodPosts[i].isVisible && allWoodPosts[j].isVisible)
           ) {
-            rightPostCaps[j - 1].isVisible = false;
             allPosts[j].isVisible = false;
             allWoodPosts[j].isVisible = false;
             rightRoots[j - 1].forEach((elm) => {
@@ -48,7 +46,6 @@ function checkIntPos(
         )
       ) {
         if (postType == 1) {
-          rightPostCaps[intersectedPosts[i] - 1].isVisible = false;
           allPosts[intersectedPosts[i]].isVisible = false;
           rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
             elm.isVisible = false;
@@ -65,7 +62,6 @@ function checkIntPos(
           fencesArr[intersectedPostsMain[i] - 1].status != "activeFence"
         ) {
           if (postType == 1) {
-            rightPostCaps[intersectedPosts[i] - 1].isVisible = true;
             allPosts[intersectedPosts[i]].isVisible = true;
             rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
               elm.isVisible = true;
@@ -82,7 +78,6 @@ function checkIntPos(
         }
       } else {
         if (postType == 1) {
-          rightPostCaps[intersectedPosts[i] - 1].isVisible = true;
           allPosts[intersectedPosts[i]].isVisible = true;
           rightRoots[intersectedPosts[i] - 1].forEach((elm) => {
             elm.isVisible = true;
@@ -109,7 +104,6 @@ var checkPostIntersecting = (
   intersectedPosts,
   intersectedPostsMain,
   fencesArr,
-  rightPostCaps,
   postType,
   smallMetalParts
 ) => {
@@ -123,7 +117,6 @@ var checkPostIntersecting = (
       intersectedPosts,
       intersectedPostsMain,
       fencesArr,
-      rightPostCaps,
       postType,
       smallMetalParts
     );
@@ -138,7 +131,6 @@ var checkPostIntersecting = (
       intersectedPosts,
       intersectedPostsMain,
       fencesArr,
-      rightPostCaps,
       postType,
       smallMetalParts
     );
@@ -153,7 +145,6 @@ var checkPostIntersecting = (
       intersectedPosts,
       intersectedPostsMain,
       fencesArr,
-      rightPostCaps,
       postType,
       smallMetalParts
     );

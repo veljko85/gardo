@@ -26,7 +26,8 @@ function loadCart(
   fakeBacks,
   fakeLefts,
   fakeRights,
-  fakeFences
+  fakeFences,
+  sturmankerMat
 ) {
   (function ($) {
     $.fn.smartCart = function (options) {
@@ -810,7 +811,9 @@ function loadCart(
               addFenceSings,
               allWoodPosts,
               woodTopParts,
-              topBoards
+              topBoards,
+              sturmankerMat,
+              sturmankersRuckseite
             );
             //open cart sections
             cartFade.style.display = "block";

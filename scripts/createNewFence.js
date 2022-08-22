@@ -88,14 +88,14 @@ function createNewFence(
     if (rightPosts[0].isVisible) {
       createRightFence(
         getAbsPosX(leftPosts[0]),
-        getAbsPosZ(leftPosts[0]) - 0.94,
+        getAbsPosZ(leftPosts[0]) - 0.93,
         Math.PI / 2,
         fenceType
       );
     } else {
       createRightFence(
         getAbsPosX(allWoodPosts[0]),
-        getAbsPosZ(allWoodPosts[0]) - 0.94,
+        getAbsPosZ(allWoodPosts[0]) - 0.95,
         Math.PI / 2,
         fenceType
       );
@@ -105,14 +105,14 @@ function createNewFence(
     if (rightPosts[0].isVisible) {
       createRightFence(
         getAbsPosX(leftPosts[0]),
-        getAbsPosZ(leftPosts[0]) + 0.94,
+        getAbsPosZ(leftPosts[0]) + 0.93,
         -Math.PI / 2,
         fenceType
       );
     } else {
       createRightFence(
         getAbsPosX(allWoodPosts[0]),
-        getAbsPosZ(allWoodPosts[0]) + 0.94,
+        getAbsPosZ(allWoodPosts[0]) + 0.95,
         -Math.PI / 2,
         fenceType
       );
