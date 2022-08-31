@@ -231,9 +231,11 @@ function draw2dPlan(
     for (let i = 0; i < rightPosts.length; i++) {
       if (
         (typeof fencesArr[i].parent == "undefined" &&
-          rightPosts[i].isVisible) ||
+          rightPosts[i].isVisible &&
+          fencesArr[i].status != "disposedFence") ||
         (typeof fencesArr[i].parent == "undefined" &&
-          rightWoodPosts[i].isVisible)
+          rightWoodPosts[i].isVisible &&
+          fencesArr[i].status != "disposedFence")
       ) {
         if (mainPostPosZ + 15 == linesY[i]) {
           //draw line betwen first and second foundations
@@ -301,8 +303,14 @@ function draw2dPlan(
     for (let i = 0; i < allPostsPos.length; i++) {
       allPostsPos[i][3].forEach((elm) => {
         if (
-          (rightPosts[i].isVisible && rightPosts[elm].isVisible) ||
-          (rightWoodPosts[i].isVisible && rightWoodPosts[elm].isVisible)
+          (rightPosts[i].isVisible &&
+            fencesArr[i].status != "disposedFence" &&
+            rightPosts[elm].isVisible &&
+            fencesArr[elm].status != "disposedFence") ||
+          (rightWoodPosts[i].isVisible &&
+            fencesArr[i].status != "disposedFence" &&
+            rightWoodPosts[elm].isVisible &&
+            fencesArr[elm].status != "disposedFence")
         ) {
           drawLine(3, linesX[i], linesY[i], linesX[elm], linesY[elm], false);
           //draw text kotas
@@ -355,7 +363,10 @@ function draw2dPlan(
     let mainX = [];
     let mainY = [];
     for (let i = 0; i < rightPosts.length; i++) {
-      if (rightPosts[i].isVisible || rightWoodPosts[i].isVisible) {
+      if (
+        (rightPosts[i].isVisible && fencesArr[i].status != "disposedFence") ||
+        (rightWoodPosts[i].isVisible && fencesArr[i].status != "disposedFence")
+      ) {
         mainX.push(linesX[i]);
         mainY.push(linesY[i]);
       }
@@ -464,7 +475,10 @@ function draw2dPlan(
       );
     //draw all foundaions
     for (let i = 0; i < allPostsPos.length; i++) {
-      if (rightPosts[i].isVisible || rightWoodPosts[i].isVisible) {
+      if (
+        (rightPosts[i].isVisible && fencesArr[i].status != "disposedFence") ||
+        (rightWoodPosts[i].isVisible && fencesArr[i].status != "disposedFence")
+      ) {
         //vord
         if (foundationsVord[i + 1].isVisible) {
           if (wholeFences[i].rotation.y == 0) {
